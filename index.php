@@ -8,12 +8,11 @@
         // Quick fix for bug with $_GET['page']
         $books->setPage(1);
     } else {
+        !isset($_SESSION['limit']) ? $_SESSION['limit'] = 10 : null;
         isset($_GET['page']) ? $books->setPage(htmlspecialchars($_GET['page'])) : null;
     }
     $books->setBooksDisplayAmount($_SESSION['limit']);
     isset($_GET['sort']) ? $books->setSorted(htmlspecialchars($_GET['sort'])) : null;
-
-
 ?>
 
 <div class="container">
