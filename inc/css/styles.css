@@ -1,0 +1,26 @@
+a.deco-none {
+    color:#000000 !important;
+    text-decoration:none;
+
+}
+.fit-width {
+    width: 70px;
+}
+
+.text-right {
+    text-align: right;
+}
+.btn-container {
+    margin-top:10px;
+}
+
+/* --- SEARCH FORM ---- */
+.search-form {
+    margin-top: 20px;
+}
+#search-form-results {
+    width: 95%;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+}
