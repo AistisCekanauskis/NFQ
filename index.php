@@ -3,10 +3,16 @@
     require_once 'books.class.php';
     $books = new Books();
 
-    isset($_POST['limit']) ? $_SESSION['limit'] = $_POST['limit'] : $_SESSION['limit'] = 10;
+    if ( isset($_POST['limit']) ) {
+        $_SESSION['limit'] = $_POST['limit'];
+        // Quick fix for bug with $_GET['page']
+        $books->setPage(1);
+    } else {
+        isset($_GET['page']) ? $books->setPage(htmlspecialchars($_GET['page'])) : null;
+    }
     $books->setBooksDisplayAmount($_SESSION['limit']);
     isset($_GET['sort']) ? $books->setSorted(htmlspecialchars($_GET['sort'])) : null;
-    isset($_GET['page']) ? $books->setPage(htmlspecialchars($_GET['page'])) : null;
+
 
 ?>
 
